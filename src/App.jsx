@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Card from "react-bootstrap/Card"; //componentes de carta
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(
+    "https://rickandmortyapi.com/api/character"
+  );
+  const [prueba, setprueba] = useState(null);
+  const api = (link) => {
+    fetch(link)
+      .then((e) => e.json())
+      .then((e) => console.log(e))
+      .catch(console.log("error"));
+  };
+  api(count);
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Rick & Morty Api</h1>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </Card.Text>
+          <Card.Link href="#">Card Link</Card.Link>
+        </Card.Body>
+      </Card>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
