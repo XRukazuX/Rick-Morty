@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card"; //componentes de carta
 import "./App.css";
 
@@ -6,6 +6,7 @@ function App() {
   const [X, setX] = useState("https://rickandmortyapi.com/api/character");
   const [Filter, setFilter] = useState(""); //El valor del texto a buscar no pueder ser booleano
   const [prueba, setprueba] = useState(""); //Status del select
+  const [Datos, setDatos] = useState(null);
   const form = (e) => {
     e.preventDefault();
     if (!prueba) {
@@ -18,10 +19,13 @@ function App() {
   const api = (link) => {
     fetch(link)
       .then((e) => e.json())
-      .then((e) => console.log(e))
-      .catch(console.log("error"));
+      .then((e) => setDatos(e))
+      .catch((err) => console.log("Error:", err));
   };
-  api(X);
+  useEffect(() => {
+    api(X);
+  }, [X]);
+  console.log(Datos);
   return (
     <>
       <h1>Rick & Morty Api</h1>
@@ -54,23 +58,27 @@ function App() {
           <input type="submit" />
         </form>
       </div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>
-            <Card.Link href="#">Nombre</Card.Link>
-          </Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            Status-Especie
-          </Card.Subtitle>
-          <Card.Subtitle className="mb-2 text-muted">
-            Localizacion: <Card.Link href="#">Nombre</Card.Link>
-          </Card.Subtitle>
-          <Card.Subtitle className="mb-2 text-muted">
-            Episodio: <Card.Link href="#">Nombre</Card.Link>
-          </Card.Subtitle>
-        </Card.Body>
-      </Card>
+      {Datos ? (
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={Datos.results[0].image} />
+          <Card.Body>
+            <Card.Title>
+              <Card.Link href="#">Nombre</Card.Link>
+            </Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">
+              Status-Especie
+            </Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted">
+              Localizacion: <Card.Link href="#">Nombre</Card.Link>
+            </Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted">
+              Episodio: <Card.Link href="#">Nombre</Card.Link>
+            </Card.Subtitle>
+          </Card.Body>
+        </Card>
+      ) : (
+        <p>Datos en espera</p>
+      )}
     </>
   );
 }
