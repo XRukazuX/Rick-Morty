@@ -1,10 +1,8 @@
 import Open from "./Open";
 import { useState, useEffect } from "react";
-function Home() {
+function Home({ Filter, Status }) {
   const [X, setX] = useState("https://rickandmortyapi.com/api/character");
-
   const [Datos, setDatos] = useState(null); //Datos obtenido de la url
-
   const api = (link) => {
     fetch(link)
       .then((e) => e.json())
@@ -18,7 +16,7 @@ function Home() {
   console.log(Datos);
   return (
     <>
-      {Datos ? (
+      {Datos && !Filter && !Status ? (
         Datos?.results.map((e, key) => <Open Datos={e} key={key} />)
       ) : (
         <p>Datos en espera</p>

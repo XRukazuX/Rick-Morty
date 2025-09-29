@@ -16,7 +16,10 @@ function App() {
         setStatus={setStatus}
       />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route
+          path="/"
+          element={<Home Filter={Filter} Status={Status} />}
+        ></Route>
       </Routes>
     </Router>
   );
