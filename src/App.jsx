@@ -63,7 +63,7 @@ function App() {
           <Card.Img variant="top" src={Datos.results[0].image} />
           <Card.Body>
             <Card.Title>
-              <Card.Link href="#">Nombre</Card.Link>
+              <Card.Link href="#">{Datos.results[0].name}</Card.Link>
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
               Status-Especie
