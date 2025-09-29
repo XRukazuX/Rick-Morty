@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card"; //componentes de carta
+import Open from "./assets/Component/Open";
 import "./App.css";
 
 function App() {
@@ -58,27 +59,7 @@ function App() {
           <input type="submit" />
         </form>
       </div>
-      {Datos ? (
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={Datos.results[0].image} />
-          <Card.Body>
-            <Card.Title>
-              <Card.Link href="#">{Datos.results[0].name}</Card.Link>
-            </Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
-              Status-Especie
-            </Card.Subtitle>
-            <Card.Subtitle className="mb-2 text-muted">
-              Localizacion: <Card.Link href="#">Nombre</Card.Link>
-            </Card.Subtitle>
-            <Card.Subtitle className="mb-2 text-muted">
-              Episodio: <Card.Link href="#">Nombre</Card.Link>
-            </Card.Subtitle>
-          </Card.Body>
-        </Card>
-      ) : (
-        <p>Datos en espera</p>
-      )}
+      {Datos ? <Open Datos={Datos} /> : <p>Datos en espera</p>}
     </>
   );
 }
