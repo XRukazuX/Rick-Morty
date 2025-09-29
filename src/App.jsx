@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card"; //componentes de carta
 import Open from "./assets/Component/Open";
 import "./App.css";
 
@@ -7,7 +6,7 @@ function App() {
   const [X, setX] = useState("https://rickandmortyapi.com/api/character");
   const [Filter, setFilter] = useState(""); //El valor del texto a buscar no pueder ser booleano
   const [prueba, setprueba] = useState(""); //Status del select
-  const [Datos, setDatos] = useState(null);
+  const [Datos, setDatos] = useState(null); //Datos obtenido de la url
   const form = (e) => {
     e.preventDefault();
     if (!prueba) {
@@ -25,8 +24,12 @@ function App() {
   };
   useEffect(() => {
     api(X);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log("Filter", typeof Filter);
+    console.log("prueba", typeof prueba);
   }, [X]);
   console.log(Datos);
+
   return (
     <>
       <h1>Rick & Morty Api</h1>
@@ -59,7 +62,29 @@ function App() {
           <input type="submit" />
         </form>
       </div>
-      {Datos ? <Open Datos={Datos} /> : <p>Datos en espera</p>}
+      {Datos && !Filter && !prueba ? (
+        Datos?.results.map((e, key) => <Open Datos={e} key={key} />)
+      ) : (
+        <p>Datos en espera</p>
+      )}
+      {Datos?.info?.prev && (
+        <input
+          type="button"
+          onClick={() => {
+            setX(Datos.info.prev);
+          }}
+          value="Anterior"
+        />
+      )}
+      {Datos?.info?.next && (
+        <input
+          type="button"
+          onClick={() => {
+            setX(Datos.info.next);
+          }}
+          value="Siguiente"
+        />
+      )}
     </>
   );
 }
