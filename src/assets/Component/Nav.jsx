@@ -1,4 +1,4 @@
-function Nav(Filter, setFilter, Status, setStatus) {
+function Nav({ Filter, setFilter, Status, setStatus }) {
   const form = (e) => {
     e.preventDefault();
     if (!Status) {
