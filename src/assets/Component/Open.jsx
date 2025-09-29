@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card"; //componentes de carta
 
 function Open(Datos, key) {
-  console.log(Datos.Datos);
   return (
     <Card key={key} style={{ width: "18rem" }}>
       <Card.Img variant="top" src={Datos.Datos.image} />
