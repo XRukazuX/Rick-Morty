@@ -1,26 +1,29 @@
 import Open from "./Open";
-import { useState, useEffect } from "react";
-function Home({ Filter, Status }) {
-  const [X, setX] = useState("https://rickandmortyapi.com/api/character");
-  const [Datos, setDatos] = useState(null); //Datos obtenido de la url
+import { useEffect } from "react";
+
+function Home({ Filter, Status, Datos, setDatos, X, setX }) {
   const api = (link) => {
     fetch(link)
       .then((e) => e.json())
       .then((e) => setDatos(e))
       .catch((err) => console.log("Error:", err));
   };
+
   useEffect(() => {
     api(X);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [X]);
-  console.log(Datos);
+  //console.log(Datos);
   return (
     <>
-      {Datos && !Filter && !Status ? (
-        Datos?.results.map((e, key) => <Open Datos={e} key={key} />)
-      ) : (
-        <p>Datos en espera</p>
-      )}
+      {Datos &&
+        !Filter &&
+        !Status &&
+        Datos?.results?.map((e, key) => <Open Datos={e} key={key} />)}
+      {Datos &&
+        Filter &&
+        Datos?.results?.map((e, key) => <Open Datos={e} key={key} />)}
+      {Datos?.error && <p>No se encontraron coincidencias</p>}
       {Datos?.info?.prev && (
         <input
           type="button"

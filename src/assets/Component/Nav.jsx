@@ -1,12 +1,36 @@
-function Nav({ Filter, setFilter, Status, setStatus }) {
+function Nav({ Filter, setFilter, Status, setStatus, setX }) {
+  /*const apiResult = (Name, Status) => {
+    let adjustedname = Name.replace(" ", "%20");
+
+    fetch(
+      `https://rickandmortyapi.com/api/character/?name=${adjustedname}&status=${Status}`
+    )
+      .then((e) => e.json())
+      .then((e) => setDatos(e))
+      .catch((err) => console.log("error de filtrado", err));
+  };*/
+  const filtro = () => {
+    const name = Filter.replace(" ", "%20");
+    const status = Status
+      ? `https://rickandmortyapi.com/api/character/?name=${Filter.replace(
+          " ",
+          "%20"
+        )}&status=${Status}`
+      : `https://rickandmortyapi.com/api/character/?name=${Filter.replace(
+          " ",
+          "%20"
+        )}`;
+    setX(status);
+  };
   const form = (e) => {
     e.preventDefault();
-    if (!Status) {
+    /*if (!Status) {
       alert("Por favor selecciona un status válido.");
       return;
     }
     console.log(Filter);
     console.log(Status);
+    console.log("Datos Filtados:", Datos);*/
   }; //Control del formulario al submit
   return (
     <>
@@ -37,7 +61,7 @@ function Nav({ Filter, setFilter, Status, setStatus }) {
             <option value="dead">Dead</option>
             <option value="unknown">Unknown</option>
           </select>
-          <input type="submit" />
+          <input type="submit" onClick={() => filtro()} />
         </form>
       </div>
     </>
