@@ -1,27 +1,35 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Home from "./assets/Component/Home";
+import Title from "./assets/Logos/Title1.png";
 import Nav from "./assets/Component/Nav";
 import Character from "./assets/Component/Character";
 import "./App.css";
 
 function App() {
+  const inicio = "https://rickandmortyapi.com/api/character";
   const [Filter, setFilter] = useState(""); //El valor del texto a buscar no pueder ser booleano
   const [Status, setStatus] = useState(""); //Status del select
-  const [Results, setResults] = useState(null); //Datos filtrados
-  const [X, setX] = useState("https://rickandmortyapi.com/api/character");
+  const [X, setX] = useState(inicio);
   const [Datos, setDatos] = useState(null); //Datos obtenido de la url
   return (
     <Router>
-      <h1>Rick & Morty Api</h1>
+      <Link
+        to="/"
+        onClick={() => {
+          setX(inicio);
+        }}
+      >
+        <img src={Title} alt="Title" />
+      </Link>
+
       <Routes>
         <Route
           path="/"
           element={
             <>
               <Nav
-                Results={Results}
-                setResults={setResults}
                 Filter={Filter}
                 setFilter={setFilter}
                 Status={Status}
@@ -31,6 +39,8 @@ function App() {
               <Home
                 Filter={Filter}
                 Status={Status}
+                setStatus={setStatus}
+                setFilter={setFilter}
                 X={X}
                 setDatos={setDatos}
                 setX={setX}
@@ -39,7 +49,10 @@ function App() {
             </>
           }
         ></Route>
-        <Route path="/Character/:name/:id" element={<Character />}></Route>
+        <Route
+          path="/Character/:name/:id"
+          element={<Character setX={setX} />}
+        ></Route>
       </Routes>
     </Router>
   );
