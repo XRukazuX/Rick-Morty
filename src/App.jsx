@@ -13,27 +13,30 @@ function App() {
   const [Datos, setDatos] = useState(null); //Datos obtenido de la url
   return (
     <Router>
-      <Nav
-        Results={Results}
-        setResults={setResults}
-        Filter={Filter}
-        setFilter={setFilter}
-        Status={Status}
-        setStatus={setStatus}
-        setX={setX}
-      />
+      <h1>Rick & Morty Api</h1>
       <Routes>
         <Route
           path="/"
           element={
-            <Home
-              Filter={Filter}
-              Status={Status}
-              X={X}
-              setDatos={setDatos}
-              setX={setX}
-              Datos={Datos}
-            />
+            <>
+              <Nav
+                Results={Results}
+                setResults={setResults}
+                Filter={Filter}
+                setFilter={setFilter}
+                Status={Status}
+                setStatus={setStatus}
+                setX={setX}
+              />
+              <Home
+                Filter={Filter}
+                Status={Status}
+                X={X}
+                setDatos={setDatos}
+                setX={setX}
+                Datos={Datos}
+              />
+            </>
           }
         ></Route>
         <Route path="/Character/:name/:id" element={<Character />}></Route>

@@ -34,7 +34,6 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
   }; //Control del formulario al submit
   return (
     <>
-      <h1>Rick & Morty Api</h1>
       <div id="Nav">
         <form action="busqueda" onSubmit={form}>
           <input
