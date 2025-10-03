@@ -5,6 +5,8 @@ import Home from "./assets/Component/Home";
 import Title from "./assets/Logos/Title1.png";
 import Nav from "./assets/Component/Nav";
 import Character from "./assets/Component/Character";
+import Episode from "./assets/Component/Episode";
+import Location from "./assets/Component/Location";
 import "./App.css";
 
 function App() {
@@ -53,6 +55,8 @@ function App() {
           path="/Character/:name/:id"
           element={<Character setX={setX} />}
         ></Route>
+        <Route path="/Episode" element={<Episode />}></Route>
+        <Route path="/Location" element={<Location />}></Route>
       </Routes>
     </Router>
   );

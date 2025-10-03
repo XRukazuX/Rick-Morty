@@ -31,6 +31,7 @@ function Home({
   //console.log(Datos);
   return (
     <>
+      {!Datos && <p>Datos inexistentes</p>}
       {Datos &&
         !Filter &&
         !Status &&

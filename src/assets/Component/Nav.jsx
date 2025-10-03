@@ -39,7 +39,7 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
           <input
             type="text"
             required
-            placeholder="Busqueda"
+            placeholder="Search"
             value={Filter}
             onChange={(e) => {
               setFilter(e.target.value);
@@ -60,7 +60,7 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
             <option value="dead">Dead</option>
             <option value="unknown">Unknown</option>
           </select>
-          <input type="submit" onClick={() => filtro()} />
+          <input type="submit" value="Search" onClick={() => filtro()} />
         </form>
       </div>
     </>

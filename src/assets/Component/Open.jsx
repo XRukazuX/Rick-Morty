@@ -17,13 +17,13 @@ function Open(Datos, key) {
           {`${Datos.Datos.status}-${Datos.Datos.species}`}
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
-          Localizacion:
+          Location:
           <Card.Link href={Datos.Datos.location.url}>
             {Datos.Datos.location.name}
           </Card.Link>
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
-          Origen:
+          Origin:
           <Card.Link href={Datos.Datos.origin.url}>
             {Datos.Datos.origin.name}
           </Card.Link>

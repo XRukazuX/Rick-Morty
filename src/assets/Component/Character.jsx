@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 function Character() {
   const { name, id } = useParams();
   const [Date, setDate] = useState(null);
-  console.log("id:", id, "name:", name);
   const character = (id) => {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((e) => e.json())
@@ -19,20 +18,31 @@ function Character() {
   return (
     <>
       <div>
-        <h2>{Date?.name}</h2>
+        <div>
+          <h2>{Date?.name}</h2>
+          <h3>{Date?.status}</h3>
+        </div>
         <section>
           <img src={Date?.image} alt="Personaje" />
         </section>
+        <h4>Species: {Date?.species}</h4>
+        <h4>Gender: {Date?.gender}</h4>
+        <h4>
+          Origin: <Link to="/Location">{Date?.origin?.name}</Link>
+        </h4>
+        <h4>
+          Location: <Link>{Date?.location?.name}</Link>
+        </h4>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="1">
-            <Accordion.Header>Episodios</Accordion.Header>
+            <Accordion.Header>Episode</Accordion.Header>
             <Accordion.Body>
-              <ListGroup as="ol" numbered>
+              <ListGroup variant="flush">
                 {Date?.episode?.map((e, key) => {
                   let number = e.split("/").pop();
                   return (
-                    <ListGroup.Item key={key} as="li">
-                      <Link>Episodio {number}</Link>
+                    <ListGroup.Item key={key}>
+                      <Link to="/Episode">Episode {number}</Link>
                     </ListGroup.Item>
                   );
                 })}
