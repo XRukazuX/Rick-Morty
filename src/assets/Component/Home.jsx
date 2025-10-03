@@ -4,8 +4,8 @@ import { useEffect } from "react";
 function Home({
   Filter,
   Status,
-  Datos,
-  setDatos,
+  Data,
+  setData,
   X,
   setX,
   setFilter,
@@ -14,7 +14,7 @@ function Home({
   const api = (link) => {
     fetch(link)
       .then((e) => e.json())
-      .then((e) => setDatos(e))
+      .then((e) => setData(e))
       .catch((err) => console.log("Error:", err));
   };
 
@@ -28,34 +28,34 @@ function Home({
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [X]);
-  //console.log(Datos);
+  //console.log(Data);
   return (
     <>
-      {!Datos && <p>Datos inexistentes</p>}
-      {Datos &&
+      {!Data && <p>Data inexistentes</p>}
+      {Data &&
         !Filter &&
         !Status &&
-        Datos?.results?.map((e, key) => <Open Datos={e} key={key} />)}
-      {Datos &&
+        Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
+      {Data &&
         Filter &&
         !Status &&
-        Datos?.results?.map((e, key) => <Open Datos={e} key={key} />)}
-      {Datos && Status && <h2>Waiting for search</h2>}
-      {Datos?.error && <p>{Datos.error}</p>}
-      {Datos?.info?.prev && (
+        Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
+      {Data && Status && <h2>Waiting for search</h2>}
+      {Data?.error && <p>{Data.error}</p>}
+      {Data?.info?.prev && (
         <input
           type="button"
           onClick={() => {
-            setX(Datos.info.prev);
+            setX(Data.info.prev);
           }}
           value="Anterior"
         />
       )}
-      {Datos?.info?.next && (
+      {Data?.info?.next && (
         <input
           type="button"
           onClick={() => {
-            setX(Datos.info.next);
+            setX(Data.info.next);
           }}
           value="Siguiente"
         />

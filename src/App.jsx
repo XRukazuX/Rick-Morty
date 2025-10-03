@@ -14,7 +14,7 @@ function App() {
   const [Filter, setFilter] = useState(""); //El valor del texto a buscar no pueder ser booleano
   const [Status, setStatus] = useState(""); //Status del select
   const [X, setX] = useState(start);
-  const [Datos, setDatos] = useState(null); //Datos obtenido de la url
+  const [Data, setData] = useState(null); //Data obtenido de la url de la api
   return (
     <Router>
       <Link
@@ -44,9 +44,9 @@ function App() {
                 setStatus={setStatus}
                 setFilter={setFilter}
                 X={X}
-                setDatos={setDatos}
+                setData={setData}
                 setX={setX}
-                Datos={Datos}
+                Data={Data}
               />
             </>
           }
@@ -55,7 +55,7 @@ function App() {
           path="/Character/:name/:id"
           element={<Character setX={setX} />}
         ></Route>
-        <Route path="/Episode" element={<Episode />}></Route>
+        <Route path="/Episode/:id" element={<Episode />}></Route>
         <Route path="/Location/:id" element={<Location />}></Route>
       </Routes>
     </Router>

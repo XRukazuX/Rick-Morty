@@ -1,31 +1,37 @@
 import Card from "react-bootstrap/Card"; //componentes de carta
 import { Link } from "react-router-dom";
-function Open(Datos, key) {
+function Open(Data, key) {
   return (
     <Card key={key} style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={Datos.Datos.image} />
+      <Card.Img variant="top" src={Data.Data.image} />
       <Card.Body>
         <Card.Title>
           <Card.Link
             as={Link}
-            to={`/Character/${Datos.Datos.name}/${Datos.Datos.id}`}
+            to={`/Character/${Data.Data.name}/${Data.Data.id}`}
           >
-            {Datos.Datos.name}
+            {Data.Data.name}
           </Card.Link>
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          {`${Datos.Datos.status}-${Datos.Datos.species}`}
+          {`${Data.Data.status}-${Data.Data.species}`}
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
           Location:
-          <Card.Link href={Datos.Datos.location.url}>
-            {Datos.Datos.location.name}
+          <Card.Link
+            as={Link}
+            to={`/Location/${Data.Data.location.url.split("/").pop()}`}
+          >
+            {Data.Data.location.name}
           </Card.Link>
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
           Origin:
-          <Card.Link href={Datos.Datos.origin.url}>
-            {Datos.Datos.origin.name}
+          <Card.Link
+            as={Link}
+            to={`/Location/${Data.Data.origin.url.split("/").pop()}`}
+          >
+            {Data.Data.origin.name}
           </Card.Link>
         </Card.Subtitle>
       </Card.Body>

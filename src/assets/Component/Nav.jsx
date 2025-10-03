@@ -2,14 +2,8 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
   const filtro = () => {
     const name = Filter.replace(" ", "%20");
     const status = Status
-      ? `https://rickandmortyapi.com/api/character/?name=${Filter.replace(
-          " ",
-          "%20"
-        )}&status=${Status}`
-      : `https://rickandmortyapi.com/api/character/?name=${Filter.replace(
-          " ",
-          "%20"
-        )}`;
+      ? `https://rickandmortyapi.com/api/character/?name=${name}&status=${Status}`
+      : `https://rickandmortyapi.com/api/character/?name=${name}`;
     setX(status);
   };
   const form = (e) => {
@@ -20,7 +14,7 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
     }
     console.log(Filter);
     console.log(Status);
-    console.log("Datos Filtados:", Datos);*/
+    console.log("Data Filtados:", Data);*/
   }; //Control del formulario al submit
   return (
     <>
