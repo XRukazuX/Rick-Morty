@@ -38,8 +38,10 @@ function Home({
         Datos?.results?.map((e, key) => <Open Datos={e} key={key} />)}
       {Datos &&
         Filter &&
+        !Status &&
         Datos?.results?.map((e, key) => <Open Datos={e} key={key} />)}
-      {Datos?.error && <p>No se encontraron coincidencias</p>}
+      {Datos && Status && <h2>Waiting for search</h2>}
+      {Datos?.error && <p>{Datos.error}</p>}
       {Datos?.info?.prev && (
         <input
           type="button"

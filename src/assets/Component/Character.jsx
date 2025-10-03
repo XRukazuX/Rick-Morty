@@ -3,7 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 function Character() {
-  const { name, id } = useParams();
+  const { id } = useParams();
   const [Date, setDate] = useState(null);
   const character = (id) => {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
@@ -28,10 +28,16 @@ function Character() {
         <h4>Species: {Date?.species}</h4>
         <h4>Gender: {Date?.gender}</h4>
         <h4>
-          Origin: <Link to="/Location">{Date?.origin?.name}</Link>
+          Origin:
+          <Link to={`/Location/${Date?.origin?.url.split("/").pop()}`}>
+            {Date?.origin?.name}
+          </Link>
         </h4>
         <h4>
-          Location: <Link>{Date?.location?.name}</Link>
+          Location:
+          <Link to={`/Location/${Date?.location?.url.split("/").pop()}`}>
+            {Date?.location?.name}
+          </Link>
         </h4>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="1">
@@ -42,7 +48,7 @@ function Character() {
                   let number = e.split("/").pop();
                   return (
                     <ListGroup.Item key={key}>
-                      <Link to="/Episode">Episode {number}</Link>
+                      <Link to={`/Episode/${number}`}>Episode {number}</Link>
                     </ListGroup.Item>
                   );
                 })}

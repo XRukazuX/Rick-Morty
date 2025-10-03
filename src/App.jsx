@@ -10,17 +10,17 @@ import Location from "./assets/Component/Location";
 import "./App.css";
 
 function App() {
-  const inicio = "https://rickandmortyapi.com/api/character";
+  const start = "https://rickandmortyapi.com/api/character";
   const [Filter, setFilter] = useState(""); //El valor del texto a buscar no pueder ser booleano
   const [Status, setStatus] = useState(""); //Status del select
-  const [X, setX] = useState(inicio);
+  const [X, setX] = useState(start);
   const [Datos, setDatos] = useState(null); //Datos obtenido de la url
   return (
     <Router>
       <Link
         to="/"
         onClick={() => {
-          setX(inicio);
+          setX(start);
         }}
       >
         <img src={Title} alt="Title" />
@@ -56,7 +56,7 @@ function App() {
           element={<Character setX={setX} />}
         ></Route>
         <Route path="/Episode" element={<Episode />}></Route>
-        <Route path="/Location" element={<Location />}></Route>
+        <Route path="/Location/:id" element={<Location />}></Route>
       </Routes>
     </Router>
   );
