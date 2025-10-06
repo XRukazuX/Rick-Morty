@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 function Location() {
   const { id } = useParams(); //id o codigo de localizacion a ver
   const [Location, setLocation] = useState(null); //Datos de la localiacion pedida
@@ -34,7 +36,27 @@ function Location() {
   console.log(Characters);
   return (
     <>
-      <h3>Entro a location</h3>
+      <h1>{Location?.name}</h1>
+      <h4>Type: {Location?.type}</h4>
+      <h4>Dimension: {Location?.dimension}</h4>
+      <div>
+        {Characters?.map((e) => {
+          console.log(e);
+          return (
+            <Card key={e.id} style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={e.image} />
+              <Card.Body>
+                <Card.Link
+                  as={Link}
+                  to={`/Character/${e.name.replace(" ", "%20")}/${e.id}`}
+                >
+                  {e.name}
+                </Card.Link>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </div>
     </>
   );
 }
