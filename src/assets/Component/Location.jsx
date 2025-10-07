@@ -14,7 +14,13 @@ function Location() {
   }, [character]);
   const apiLocation = (a) => {
     fetch(`https://rickandmortyapi.com/api/location/${a}`)
-      .then((e) => e.json())
+      .then((response) => {
+        if (!response.ok) {
+          // Aquí controlás el 404 u otro error
+          throw new Error(`Ubicación con ID ${id} no encontrada.`);
+        }
+        return response.json();
+      })
       .then((k) => setLocation(k))
       .catch((error) => console.log("Error", error));
   }; //Funcion para obtener la informacion para "Location"
@@ -32,30 +38,35 @@ function Location() {
       apiCharacters(api);
     }
   }, [Location]); //Se obtiene datos de los personajes del episodio solo cuando tengo Location
-  console.log(Location);
-  console.log(Characters);
   return (
     <>
-      <h1>{Location?.name}</h1>
-      <h4>Type: {Location?.type}</h4>
-      <h4>Dimension: {Location?.dimension}</h4>
+      <h1>{Location?.name || "Unknown"}</h1>
+      <h4>Type: {Location?.type || "Unknown"}</h4>
+      <h4>Dimension: {Location?.dimension || "Unknown"}</h4>
+      <h3>
+        Characters of the Location:
+        {Characters ? "" : "Unknown"}
+      </h3>
       <div>
-        {Characters?.map((e) => {
-          console.log(e);
-          return (
-            <Card key={e.id} style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={e.image} />
-              <Card.Body>
-                <Card.Link
-                  as={Link}
-                  to={`/Character/${e.name.replace(" ", "%20")}/${e.id}`}
-                >
-                  {e.name}
-                </Card.Link>
-              </Card.Body>
-            </Card>
-          );
-        })}
+        {Characters ? (
+          Characters?.map((e) => {
+            return (
+              <Card key={e.id} style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={e.image} />
+                <Card.Body>
+                  <Card.Link
+                    as={Link}
+                    to={`/Character/${e.name.replace(" ", "%20")}/${e.id}`}
+                  >
+                    {e.name}
+                  </Card.Link>
+                </Card.Body>
+              </Card>
+            );
+          })
+        ) : (
+          <h1>Loading error, check search parameters</h1>
+        )}
       </div>
     </>
   );

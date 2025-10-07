@@ -8,13 +8,6 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
   };
   const form = (e) => {
     e.preventDefault();
-    /*if (!Status) {
-      alert("Por favor selecciona un status válido.");
-      return;
-    }
-    console.log(Filter);
-    console.log(Status);
-    console.log("Data Filtados:", Data);*/
   }; //Control del formulario al submit
   return (
     <>
@@ -23,7 +16,7 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
           <input
             type="text"
             required
-            placeholder="Search"
+            placeholder="Character Finder"
             value={Filter}
             onChange={(e) => {
               setFilter(e.target.value);
@@ -31,7 +24,6 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
           />
           <select
             name="Status"
-            id="asd"
             value={Status}
             onChange={(e) => {
               setStatus(e.target.value);

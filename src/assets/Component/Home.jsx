@@ -16,7 +16,7 @@ function Home({
       .then((e) => e.json())
       .then((e) => setData(e))
       .catch((err) => console.log("Error:", err));
-  };
+  }; //Api de personaje filtrado
 
   useEffect(() => {
     api(X);

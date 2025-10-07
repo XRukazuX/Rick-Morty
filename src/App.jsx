@@ -7,6 +7,7 @@ import Nav from "./assets/Component/Nav";
 import Character from "./assets/Component/Character";
 import Episode from "./assets/Component/Episode";
 import Location from "./assets/Component/Location";
+import Mistake from "./assets/Component/Mistake";
 import "./App.css";
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
         ></Route>
         <Route path="/Episode/:id" element={<Episode />}></Route>
         <Route path="/Location/:id" element={<Location />}></Route>
+        <Route path="*" element={<Mistake />}></Route>
       </Routes>
     </Router>
   );
