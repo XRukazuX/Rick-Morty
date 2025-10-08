@@ -8,6 +8,7 @@ import Character from "./assets/Component/Character";
 import Episode from "./assets/Component/Episode";
 import Location from "./assets/Component/Location";
 import Mistake from "./assets/Component/Mistake";
+import Entrada from "./assets/Logos/mask.png";
 import "./App.css";
 
 function App() {
@@ -19,14 +20,17 @@ function App() {
   return (
     <>
       <Router>
-        <div className="mark"></div>
+        <div className="mark">
+          <img src={Entrada} alt="Entrada" />
+        </div>
         <Link
+          className="Title"
           to="/"
           onClick={() => {
             setX(start);
           }}
         >
-          <img src={Title} alt="Title" />
+          <img id="Title" src={Title} alt="Title" />
         </Link>
         <Routes>
           <Route

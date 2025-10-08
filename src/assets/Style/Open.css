@@ -1,0 +1,42 @@
+#card-style {
+  border-radius: 10%;
+}
+.card {
+  position: relative;
+  border: 2px solid transparent;
+  transition: border 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #fff;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border: 3px solid rgb(130, 223, 161);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  animation: electric-border 1.2s infinite;
+}
+.card:hover::before {
+  opacity: 1;
+}
+@keyframes electric-border {
+  0% {
+    filter: drop-shadow(0 0 4px #0ff) hue-rotate(45deg) brightness(1.2);
+    border-color: #0ff;
+  }
+  50% {
+    filter: drop-shadow(0 0 4px rgb(16, 175, 128)) hue-rotate(45deg)
+      brightness(1.8);
+    border-color: #0fb441;
+  }
+  100% {
+    filter: drop-shadow(0 0 4px #0ff) hue-rotate(45deg) brightness(1.2);
+    border-color: #0ff;
+  }
+}

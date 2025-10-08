@@ -1,8 +1,9 @@
 import Card from "react-bootstrap/Card"; //componentes de carta
 import { Link } from "react-router-dom";
+import "../Style/Open.css";
 function Open(Data, key) {
   return (
-    <Card key={key} style={{ width: "18rem" }}>
+    <Card key={key} id="card-style" style={{ width: "18rem" }}>
       <Card.Img variant="top" src={Data.Data.image} />
       <Card.Body>
         <Card.Title>
