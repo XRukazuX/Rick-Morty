@@ -17,50 +17,52 @@ function App() {
   const [X, setX] = useState(start);
   const [Data, setData] = useState(null); //Data obtenido de la url de la api
   return (
-    <Router>
-      <Link
-        to="/"
-        onClick={() => {
-          setX(start);
-        }}
-      >
-        <img src={Title} alt="Title" />
-      </Link>
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Nav
-                Filter={Filter}
-                setFilter={setFilter}
-                Status={Status}
-                setStatus={setStatus}
-                setX={setX}
-              />
-              <Home
-                Filter={Filter}
-                Status={Status}
-                setStatus={setStatus}
-                setFilter={setFilter}
-                X={X}
-                setData={setData}
-                setX={setX}
-                Data={Data}
-              />
-            </>
-          }
-        ></Route>
-        <Route
-          path="/Character/:name/:id"
-          element={<Character setX={setX} />}
-        ></Route>
-        <Route path="/Episode/:id" element={<Episode />}></Route>
-        <Route path="/Location/:id" element={<Location />}></Route>
-        <Route path="*" element={<Mistake />}></Route>
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <div className="mark"></div>
+        <Link
+          to="/"
+          onClick={() => {
+            setX(start);
+          }}
+        >
+          <img src={Title} alt="Title" />
+        </Link>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Nav
+                  Filter={Filter}
+                  setFilter={setFilter}
+                  Status={Status}
+                  setStatus={setStatus}
+                  setX={setX}
+                />
+                <Home
+                  Filter={Filter}
+                  Status={Status}
+                  setStatus={setStatus}
+                  setFilter={setFilter}
+                  X={X}
+                  setData={setData}
+                  setX={setX}
+                  Data={Data}
+                />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/Character/:name/:id"
+            element={<Character setX={setX} />}
+          ></Route>
+          <Route path="/Episode/:id" element={<Episode />}></Route>
+          <Route path="/Location/:id" element={<Location />}></Route>
+          <Route path="*" element={<Mistake />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
