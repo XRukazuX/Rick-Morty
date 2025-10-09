@@ -1,0 +1,21 @@
+#Nav {
+  width: 100vw;
+  height: clamp(20px, 30px, 5vh);
+}
+.Form-search {
+  width: 100vw;
+  height: clamp(20px, 30px, 5vh);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#Text {
+  width: clamp(150px, 50%, 200px);
+}
+@media screen and (width > 500px) {
+  .Form-search {
+    gap: 1rem;
+  }
+}

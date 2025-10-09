@@ -1,3 +1,4 @@
+import "../Style/Nav.css";
 function Nav({ Filter, setFilter, Status, setStatus, setX }) {
   const filtro = () => {
     const name = Filter.replace(" ", "%20");
@@ -12,8 +13,9 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
   return (
     <>
       <div id="Nav">
-        <form action="busqueda" onSubmit={form}>
+        <form action="busqueda" className="Form-search" onSubmit={form}>
           <input
+            id="Text"
             type="text"
             required
             placeholder="Character Finder"
@@ -37,7 +39,7 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
             <option value="unknown">Unknown</option>
           </select>
           <input
-            className="btn-search"
+            className="btn-"
             type="submit"
             value="Search"
             onClick={() => filtro()}
