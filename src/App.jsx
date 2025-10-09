@@ -9,7 +9,7 @@ import Episode from "./assets/Component/Episode";
 import Location from "./assets/Component/Location";
 import Mistake from "./assets/Component/Mistake";
 import Entrada from "./assets/Logos/mask.png";
-import "./App.css";
+import "./assets/Style/App.css";
 
 function App() {
   const start = "https://rickandmortyapi.com/api/character";

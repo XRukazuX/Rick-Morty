@@ -1,6 +1,6 @@
 import Open from "./Open";
 import { useEffect } from "react";
-
+import "../Style/Home.css";
 function Home({
   Filter,
   Status,
@@ -31,24 +31,26 @@ function Home({
   //console.log(Data);
   return (
     <>
-      {!Data && <p>Data inexistentes</p>}
-      {Data &&
-        !Filter &&
-        !Status &&
-        Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
-      {Data &&
-        Filter &&
-        !Status &&
-        Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
-      {Data && Status && <h2>Waiting for search</h2>}
-      {Data?.error && <p>{Data.error}</p>}
+      <div id="contenedor">
+        {!Data && <p>Non-existent data</p>}
+        {Data &&
+          !Filter &&
+          !Status &&
+          Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
+        {Data &&
+          Filter &&
+          !Status &&
+          Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
+        {Data && Status && <h2>Waiting for search</h2>}
+        {Data?.error && <p>{Data.error}</p>}
+      </div>
       {Data?.info?.prev && (
         <input
           type="button"
           onClick={() => {
             setX(Data.info.prev);
           }}
-          value="Anterior"
+          value="Previous"
         />
       )}
       {Data?.info?.next && (
@@ -57,7 +59,7 @@ function Home({
           onClick={() => {
             setX(Data.info.next);
           }}
-          value="Siguiente"
+          value="Next"
         />
       )}
     </>

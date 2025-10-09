@@ -25,6 +25,7 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
             }}
           />
           <select
+            className="Status"
             name="Status"
             value={Status}
             onChange={(e) => {
@@ -39,7 +40,7 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
             <option value="unknown">Unknown</option>
           </select>
           <input
-            className="btn-"
+            className="boton color-boton"
             type="submit"
             value="Search"
             onClick={() => filtro()}

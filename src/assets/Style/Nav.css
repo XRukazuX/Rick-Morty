@@ -14,6 +14,26 @@
 #Text {
   width: clamp(150px, 50%, 200px);
 }
+.Status {
+  width: clamp(80px, 25%, 100px);
+}
+.boton {
+  width: clamp(50px, 20%, 60px);
+  height: clamp(20px, 30px, 5vh);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 1px;
+}
+.color-boton {
+  background-image: linear-gradient(to right, #82a8d1, #4ab2e2);
+}
+.color-boton:hover {
+  background-image: linear-gradient(to right, #0b7dda, #4ab2e2);
+  cursor: progress;
+}
 @media screen and (width > 500px) {
   .Form-search {
     gap: 1rem;

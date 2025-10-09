@@ -1,5 +1,8 @@
 #card-style {
   border-radius: 10%;
+  height: 30rem;
+  min-height: 20rem;
+  border: 1px greenyellow outset;
 }
 .card {
   position: relative;
