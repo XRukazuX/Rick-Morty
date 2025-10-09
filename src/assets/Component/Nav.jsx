@@ -36,7 +36,12 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
             <option value="dead">Dead</option>
             <option value="unknown">Unknown</option>
           </select>
-          <input type="submit" value="Search" onClick={() => filtro()} />
+          <input
+            className="btn-search"
+            type="submit"
+            value="Search"
+            onClick={() => filtro()}
+          />
         </form>
       </div>
     </>
