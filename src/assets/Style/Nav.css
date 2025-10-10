@@ -16,6 +16,7 @@
 #Text {
   width: clamp(150px, 50%, 200px);
   border-radius: 10px;
+  text-align: center;
 }
 .Status {
   width: clamp(80px, 25%, 100px);

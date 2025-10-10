@@ -10,6 +10,10 @@
   grid-template-rows: 30rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
 }
+#waiting,
+#error {
+  grid-column: 1/5;
+}
 .move {
   width: 100dvw;
   height: clamp(20px, 30px, 5vh);

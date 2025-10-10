@@ -41,11 +41,11 @@ function Home({
           Filter &&
           !Status &&
           Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
-        {Data && Status && <h2>Waiting for search</h2>}
-        {Data?.error && <p>{Data.error}</p>}
+        {Data && Status && <h2 id="waiting">Waiting for search</h2>}
+        {Data?.error && <h2 id="error">{Data.error}</h2>}
       </div>
       <div className="move">
-        {Data?.info?.prev && (
+        {Data?.info?.prev && !Status && (
           <input
             type="button"
             className="boton1 color-boton1"
@@ -55,7 +55,7 @@ function Home({
             value="Previous"
           />
         )}
-        {Data?.info?.next && (
+        {Data?.info?.next && !Status && (
           <input
             type="button"
             className="boton1 color-boton1"
