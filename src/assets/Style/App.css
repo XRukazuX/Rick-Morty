@@ -2,6 +2,13 @@
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Hereda el color del elemento padre */
+}
+a:hover {
+  color: #10753a;
+}
 #root {
   width: 100dvw;
   height: auto;
@@ -15,7 +22,18 @@
   align-items: center;
   background-color: #00f7ff;
   position: fixed;
+
   animation: slide-out-bck-center 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+.rotate {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;
+  position: fixed;
+  z-index: -1;
+  animation: rotate 10s linear infinite;
 }
 .mark img {
   width: 100%;
@@ -26,11 +44,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(
+    rgb(99, 238, 215),
+    rgb(111, 238, 160),
+    rgb(93, 114, 233)
+  );
 }
 #Title {
-  width: 100%;
+  width: 100dvw;
   height: clamp(100px, 150px, 20vh);
   object-fit: contain;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    filter: brightness(150%);
+  }
+  50% {
+    filter: brightness(100%);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: brightness(150%);
+  }
 }
 @keyframes slide-out-bck-center {
   0% {

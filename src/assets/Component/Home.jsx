@@ -44,24 +44,28 @@ function Home({
         {Data && Status && <h2>Waiting for search</h2>}
         {Data?.error && <p>{Data.error}</p>}
       </div>
-      {Data?.info?.prev && (
-        <input
-          type="button"
-          onClick={() => {
-            setX(Data.info.prev);
-          }}
-          value="Previous"
-        />
-      )}
-      {Data?.info?.next && (
-        <input
-          type="button"
-          onClick={() => {
-            setX(Data.info.next);
-          }}
-          value="Next"
-        />
-      )}
+      <div className="move">
+        {Data?.info?.prev && (
+          <input
+            type="button"
+            className="boton1 color-boton1"
+            onClick={() => {
+              setX(Data.info.prev);
+            }}
+            value="Previous"
+          />
+        )}
+        {Data?.info?.next && (
+          <input
+            type="button"
+            className="boton1 color-boton1"
+            onClick={() => {
+              setX(Data.info.next);
+            }}
+            value="Next"
+          />
+        )}
+      </div>
     </>
   );
 }

@@ -10,12 +10,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-color: rgb(92, 112, 223);
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.3);
 }
 #Text {
   width: clamp(150px, 50%, 200px);
+  border-radius: 10px;
 }
 .Status {
   width: clamp(80px, 25%, 100px);
+  border-radius: 10px;
 }
 .boton {
   width: clamp(50px, 20%, 60px);

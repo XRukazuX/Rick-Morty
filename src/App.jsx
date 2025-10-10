@@ -9,6 +9,7 @@ import Episode from "./assets/Component/Episode";
 import Location from "./assets/Component/Location";
 import Mistake from "./assets/Component/Mistake";
 import Entrada from "./assets/Logos/mask.png";
+import Fondo from "./assets/Logos/fondoPortal.png";
 import "./assets/Style/App.css";
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
       <Router>
         <div className="mark">
           <img src={Entrada} alt="Entrada" />
+        </div>
+        <div className="rotate">
+          <img src={Fondo} alt="Entrada" />
         </div>
         <Link
           className="Title"

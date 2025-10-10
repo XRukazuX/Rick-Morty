@@ -1,6 +1,6 @@
 #contenedor {
   width: 100dvw;
-  min-height: 100dvh;
+  min-height: 68dvh;
   padding-top: 1rem;
   height: auto;
   display: grid;
@@ -9,4 +9,32 @@
   justify-items: center;
   grid-template-rows: 30rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+}
+.move {
+  width: 100dvw;
+  height: clamp(20px, 30px, 5vh);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.boton1 {
+  width: clamp(50px, 25%, 70px);
+  height: clamp(20px, 30px, 5vh);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 1px;
+}
+.color-boton1 {
+  background-image: linear-gradient(to right, #82a8d1, #4ab2e2);
+}
+.color-boton1:hover {
+  background-image: linear-gradient(to right, #0b7dda, #4ab2e2);
+  cursor: progress;
 }
