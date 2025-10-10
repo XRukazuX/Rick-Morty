@@ -1,7 +1,17 @@
 import Card from "react-bootstrap/Card"; //componentes de carta
 import { Link } from "react-router-dom";
 import "../Style/Open.css";
+
 function Open(Data, key) {
+  const status = () => {
+    if (Data.Data.status.toLowerCase() == "alive") {
+      return "alive";
+    } else if (Data.Data.status.toLowerCase() == "dead") {
+      return "dead";
+    } else if (Data.Data.status.toLowerCase() == "unknown") {
+      return "unknown";
+    }
+  };
   return (
     <Card key={key} id="card-style" style={{ width: "18rem" }}>
       <Card.Img variant="top" src={Data.Data.image} />
@@ -14,11 +24,11 @@ function Open(Data, key) {
             {Data.Data.name}
           </Card.Link>
         </Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">
+        <Card.Subtitle className="mb-2 text-muted status" id={`${status()}`}>
           {`${Data.Data.status}-${Data.Data.species}`}
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
-          Location:
+          <strong>Location:</strong>
           <Card.Link
             as={Link}
             to={`/Location/${Data.Data.location.url.split("/").pop()}`}
@@ -27,7 +37,7 @@ function Open(Data, key) {
           </Card.Link>
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
-          Origin:
+          <strong>Origin:</strong>
           <Card.Link
             as={Link}
             to={`/Location/${Data.Data.origin.url.split("/").pop()}`}

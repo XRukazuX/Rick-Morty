@@ -4,6 +4,29 @@
   min-height: 20rem;
   border: 1px greenyellow outset;
 }
+.card-title {
+  text-align: center;
+}
+.status {
+  width: 150px;
+  min-width: 100px;
+  margin: 0 auto;
+  font-weight: bold;
+  text-align: center;
+  border: solid black 2px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+#alive {
+  background: greenyellow;
+}
+#dead {
+  background: rgb(243, 81, 81);
+}
+#unknown {
+  background: #918f8f;
+}
 .card {
   position: relative;
   border: 2px solid transparent;
@@ -30,7 +53,7 @@
 }
 @keyframes electric-border {
   0% {
-    filter: drop-shadow(0 0 4px #0ff) hue-rotate(45deg) brightness(1.2);
+    filter: drop-shadow(0 0 8px #0ff) hue-rotate(45deg) brightness(1.2);
     border-color: #0ff;
   }
   50% {
@@ -39,7 +62,7 @@
     border-color: #0fb441;
   }
   100% {
-    filter: drop-shadow(0 0 4px #0ff) hue-rotate(45deg) brightness(1.2);
+    filter: drop-shadow(0 0 20px #0ff) hue-rotate(45deg) brightness(1.2);
     border-color: #0ff;
   }
 }
