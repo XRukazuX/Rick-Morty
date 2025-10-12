@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../Style/Episode.css";
 function Episode() {
   const { id } = useParams(); //Id del episodio a usar en Api
   const [Info, setInfo] = useState(null); //Datos del episodio
@@ -38,21 +39,22 @@ function Episode() {
       apiCharacters(api);
     }
   }, [Info]); //Consumir api de los personajes solo si existe "Info"
-  console.log("Id= ", id);
-  console.log(Info);
-  console.log(Characters);
   return (
     <>
-      <h1>{Info ? ` ${Info.episode}-${Info.name}` : "Unknown"}</h1>
-      <h3>Release:{Info ? Info.air_date : "Unknown"}</h3>
-      <div>
-        {Info && Characters && <h3> Characters of the episode</h3>}
+      {Characters && (
+        <div id="conteiner5">
+          <h1>{Info ? ` ${Info.episode}-${Info.name}` : "Unknown"}</h1>
+          <h3>Release:{Info ? Info.air_date : "Unknown"}</h3>
+          <h3> Characters of the episode</h3>
+        </div>
+      )}
+      <div id="conteiner2">
         {Characters ? (
           Characters?.map((e) => {
             return (
               <Card key={e.id} style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={e.image} />
-                <Card.Body>
+                <Card.Body id="nombre">
                   <Card.Link
                     as={Link}
                     to={`/Character/${e.name.replace(" ", "%20")}/${e.id}`}
@@ -64,7 +66,9 @@ function Episode() {
             );
           })
         ) : (
-          <h1>Loading error, check search parameters</h1>
+          <div id="conteiner1">
+            <h1 className="error">Loading error, check search parameters</h1>
+          </div>
         )}
       </div>
     </>
