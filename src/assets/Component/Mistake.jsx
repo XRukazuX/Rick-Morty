@@ -1,4 +1,11 @@
+import "../Style/Mistake.css";
 function Mistake() {
-  return <h1>Error de Pagina</h1>;
+  return (
+    <>
+      <div className="conteiner">
+        <h1 className="error">Error de Pagina</h1>
+      </div>
+    </>
+  );
 }
 export default Mistake;

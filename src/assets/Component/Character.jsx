@@ -18,7 +18,7 @@ function Character() {
   return (
     <>
       {Date?.name == name ? (
-        <div id="conteiner">
+        <div id="conteiner11">
           <div id="DateName">
             <h2>
               {Date?.name}-{Date?.status}
@@ -67,7 +67,9 @@ function Character() {
           </div>
         </div>
       ) : (
-        <h1 className="error">Nombre e id no coinciden</h1>
+        <div id="conteiner1">
+          <h1 className="error">Name and ID do not match</h1>
+        </div>
       )}
     </>
   );

@@ -27,7 +27,17 @@
     border-color: transparent;
   }
 }
-#conteiner {
+#conteiner1 {
+  width: 100vw;
+  height: 80vh;
+  align-content: center;
+  justify-content: center;
+  background-image: url("../Logos/Error.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#conteiner11 {
   width: 100vw;
   height: auto;
   min-height: 80vh;
@@ -68,7 +78,7 @@
 #DateInfo {
   width: 100vw;
   height: 20vh;
-  min-height: 160px;
+  min-height: 180px;
 }
 #Episode {
   width: 50vw;

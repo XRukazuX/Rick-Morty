@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import "../Style/Location.css";
 function Location() {
   const { id } = useParams(); //id o codigo de localizacion a ver
   const [Location, setLocation] = useState(null); //Datos de la localiacion pedida
@@ -40,20 +41,27 @@ function Location() {
   }, [Location]); //Se obtiene datos de los personajes del episodio solo cuando tengo Location
   return (
     <>
-      <h1>{Location?.name || "Unknown"}</h1>
-      <h4>Type: {Location?.type || "Unknown"}</h4>
-      <h4>Dimension: {Location?.dimension || "Unknown"}</h4>
-      <h3>
-        Characters of the Location:
-        {Characters ? "" : "Unknown"}
-      </h3>
-      <div>
+      {Characters && (
+        <>
+          <div id="conteiner3">
+            <h1>{Location?.name || "Unknown"}</h1>
+            <h4>Type: {Location?.type || "Unknown"}</h4>
+            <h4>Dimension: {Location?.dimension || "Unknown"}</h4>
+            <h3>
+              Characters of the Location:
+              {Characters ? "" : "Unknown"}
+            </h3>
+          </div>
+        </>
+      )}
+
+      <div id="conteiner2">
         {Characters ? (
           Characters?.map((e) => {
             return (
               <Card key={e.id} style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={e.image} />
-                <Card.Body>
+                <Card.Body id="nombre">
                   <Card.Link
                     as={Link}
                     to={`/Character/${e.name.replace(" ", "%20")}/${e.id}`}
@@ -65,7 +73,9 @@ function Location() {
             );
           })
         ) : (
-          <h1>Loading error, check search parameters</h1>
+          <div id="conteiner1">
+            <h1 className="error">Loading error, check search parameters</h1>
+          </div>
         )}
       </div>
     </>

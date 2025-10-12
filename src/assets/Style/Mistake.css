@@ -1,0 +1,40 @@
+.error {
+  color: rgb(224, 228, 8);
+  -webkit-text-stroke: 0.5px black;
+  font-weight: bold;
+  text-align: center;
+  align-content: center;
+  margin: 0 auto;
+  overflow: hidden; /* Oculta el texto que aún no "aparece" */
+  border-right: 2px solid #000; /* Simula el cursor */
+  white-space: nowrap; /* No permite saltos de línea */
+  font-size: 1.5rem;
+  animation: typing 4s steps(40, end) forwards, blink 0.7s step-end;
+  font-family: monospace; /* Fuente tipo máquina de escribir */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.conteiner {
+  width: 100vw;
+  height: 80vh;
+  align-content: center;
+  justify-content: center;
+  background-image: url("../Logos/Error.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
