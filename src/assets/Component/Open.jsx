@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card"; //componentes de carta
 import { Link } from "react-router-dom";
 import "../Style/Open.css";
-
 function Open(Data, key) {
   const status = () => {
     if (Data.Data.status.toLowerCase() == "alive") {
