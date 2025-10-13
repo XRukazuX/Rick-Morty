@@ -32,7 +32,7 @@ function Home({
   return (
     <>
       <div id="contenedor">
-        {!Data && <p>Non-existent data</p>}
+        {!Data && <p id="error">Non-existent data</p>}
         {Data &&
           !Filter &&
           !Status &&
@@ -42,7 +42,7 @@ function Home({
           !Status &&
           Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
         {Data && Status && <h2 id="waiting">Waiting for search</h2>}
-        {Data?.error && <h2 id="error">{Data.error}</h2>}
+        {Data?.error && !Status && <h2 id="error">{Data.error}</h2>}
       </div>
       <div className="move">
         {Data?.info?.prev && !Status && (

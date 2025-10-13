@@ -11,8 +11,11 @@
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
 }
 #waiting,
-#errors {
+#error {
+  color: white;
   grid-column: 1/5;
+  -webkit-text-stroke: 0.5px black;
+  font-weight: bold;
 }
 .move {
   width: 100dvw;
