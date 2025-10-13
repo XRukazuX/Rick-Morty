@@ -1,16 +1,8 @@
-# React + Vite
+# Proyecto de uso de api de "Rick & Morty"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Documentacion de la api : " https://rickandmortyapi.com/documentation/ "
+Herramientas usadas : Html, JavaScript, Css, React, React-Bootstrap y React-Router.
 
-Currently, two official plugins are available:
+El proyecto tiene como finalidad la exploracion de los personajes que componen la serie de "Rick and Morty" la cual cuenta con una basta variedad de personajes. Tambien se mostrara un poco de la informacion personal del personajes a eleccion, localizacion ocupada, episodio donde es visto y contara con un buscador si se quiere buscar uno especifico. La imagenes de los personajes provienen de la api pero para las imagenes de fondo o iconos se encontraron en la red para crear un mejor diseño en el proyecto. Cabe recalcar que este es un proyecto te practica con posibilidad de mejoras.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Link de visualizacion del proyectos : " https://infiniterick.netlify.app/ "
