@@ -2,11 +2,12 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import Mistake from "./Mistake";
 import "../Style/Location.css";
 function Location() {
   const { id } = useParams(); //id o codigo de localizacion a ver
   const [Location, setLocation] = useState(null); //Datos de la localiacion pedida
-  const [Characters, setCharacters] = useState(null); //Datos del personaje
+  const [Characters, setCharacters] = useState([]); //Datos del personaje
   const character = useMemo(() => {
     return Location?.residents?.map((e) => e.split("/").pop()).join(","); //Contiene los id de los caracteres que ocupan la localizacion;
   }, [Location]);
@@ -33,12 +34,12 @@ function Location() {
   };
   useEffect(() => {
     apiLocation(id);
-  }, []); //Solo que se obtengan los datos al cargar la pagina
+  }, [id]); //Solo que se obtengan los datos al cargar la pagina
   useEffect(() => {
-    if (Location) {
+    if (Location && Location.residents.length > 0) {
       apiCharacters(api);
     }
-  }, [Location]); //Se obtiene datos de los personajes del episodio solo cuando tengo Location
+  }, [Location, api]); //Se obtiene datos de los personajes del episodio solo cuando tengo Location
   return (
     <>
       {Characters && (
@@ -56,7 +57,7 @@ function Location() {
       )}
 
       <div id="conteiner2">
-        {Characters ? (
+        {Characters.length > 0 ? (
           Characters?.map((e) => {
             return (
               <Card key={e.id} style={{ width: "18rem" }}>
@@ -73,9 +74,7 @@ function Location() {
             );
           })
         ) : (
-          <div id="conteiner1">
-            <h1 className="error">Loading error, check search parameters</h1>
-          </div>
+          <Mistake />
         )}
       </div>
     </>

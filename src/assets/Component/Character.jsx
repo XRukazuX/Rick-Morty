@@ -2,6 +2,7 @@ import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Mistake from "./Mistake";
 import "../Style/Character.css";
 function Character() {
   const { id, name } = useParams();
@@ -67,9 +68,7 @@ function Character() {
           </div>
         </div>
       ) : (
-        <div id="conteiner1">
-          <h1 className="error">Name and ID do not match</h1>
-        </div>
+        <Mistake />
       )}
     </>
   );

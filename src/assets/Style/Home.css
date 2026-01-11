@@ -13,7 +13,10 @@
 #waiting,
 #error {
   color: white;
-  grid-column: 1/5;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-text-stroke: 0.5px black;
   font-weight: bold;
 }
@@ -29,8 +32,8 @@
   margin-bottom: 1rem;
 }
 .boton1 {
-  width: clamp(50px, 25%, 70px);
-  height: clamp(20px, 30px, 5vh);
+  width: clamp(50px, 25%, 80px);
+  height: clamp(30px, 50px, 5vh);
   border: none;
   color: white;
   cursor: pointer;

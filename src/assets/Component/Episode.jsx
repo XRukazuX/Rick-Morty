@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Mistake from "./Mistake";
 import "../Style/Episode.css";
 function Episode() {
   const { id } = useParams(); //Id del episodio a usar en Api
@@ -66,9 +67,7 @@ function Episode() {
             );
           })
         ) : (
-          <div id="conteiner1">
-            <h1 className="error">Loading error, check search parameters</h1>
-          </div>
+          <Mistake />
         )}
       </div>
     </>
