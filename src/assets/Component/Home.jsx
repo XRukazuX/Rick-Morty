@@ -1,5 +1,5 @@
 import Open from "./Open";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import "../Style/Home.css";
 function Home({
   Filter,
@@ -11,12 +11,15 @@ function Home({
   setFilter,
   setStatus,
 }) {
-  const api = (link) => {
-    fetch(link)
-      .then((e) => e.json())
-      .then((e) => setData(e))
-      .catch((err) => console.log("Error:", err));
-  }; //Api de personaje filtrado
+  const api = useCallback(
+    (link) => {
+      fetch(link)
+        .then((e) => e.json())
+        .then((e) => setData(e))
+        .catch((err) => console.log("Error:", err));
+    },
+    [setData],
+  );
 
   useEffect(() => {
     api(X);
@@ -27,7 +30,7 @@ function Home({
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [X]);
+  }, [X, Filter, Status, api, setFilter, setStatus]);
   //console.log(Data);
   return (
     <>

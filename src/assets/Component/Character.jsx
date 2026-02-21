@@ -15,7 +15,7 @@ function Character() {
   };
   useEffect(() => {
     character(id);
-  }, []);
+  }, [id]);
   return (
     <>
       {Date?.name == name ? (

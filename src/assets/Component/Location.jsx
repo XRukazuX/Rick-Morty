@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Mistake from "./Mistake";
@@ -14,18 +14,20 @@ function Location() {
   const api = useMemo(() => {
     return `https://rickandmortyapi.com/api/character/${character}`;
   }, [character]);
-  const apiLocation = (a) => {
-    fetch(`https://rickandmortyapi.com/api/location/${a}`)
-      .then((response) => {
-        if (!response.ok) {
-          // Aquí controlás el 404 u otro error
-          throw new Error(`Ubicación con ID ${id} no encontrada.`);
-        }
-        return response.json();
-      })
-      .then((k) => setLocation(k))
-      .catch((error) => console.log("Error", error));
-  }; //Funcion para obtener la informacion para "Location"
+  const apiLocation = useCallback(
+    (a) => {
+      fetch(`https://rickandmortyapi.com/api/location/${a}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Ubicación con ID ${id} no encontrada.`);
+          }
+          return response.json();
+        })
+        .then((k) => setLocation(k))
+        .catch((error) => console.log("Error", error));
+    },
+    [id], // Solo cambia si cambia 'id'
+  );
   const apiCharacters = (e) => {
     fetch(e)
       .then((e) => e.json())
@@ -34,7 +36,7 @@ function Location() {
   };
   useEffect(() => {
     apiLocation(id);
-  }, [id]); //Solo que se obtengan los datos al cargar la pagina
+  }, [id, apiLocation]); //Solo que se obtengan los datos al cargar la pagina
   useEffect(() => {
     if (Location && Location.residents.length > 0) {
       apiCharacters(api);

@@ -34,12 +34,12 @@ function Episode() {
   }; //Api para consumir los datos de los personajes
   useEffect(() => {
     episode(id);
-  }, []); //consumir Api del episodio
+  }, [id]); //consumir Api del episodio
   useEffect(() => {
     if (Info) {
       apiCharacters(api);
     }
-  }, [Info]); //Consumir api de los personajes solo si existe "Info"
+  }, [Info, api]); //Consumir api de los personajes solo si existe "Info"
   return (
     <>
       {Characters && (
