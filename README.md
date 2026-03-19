@@ -2,7 +2,7 @@
 
 ## Demo
 
-<video src="./assets/demo.webm" controls autoplay loop muted></video>
+<video src="./assets/Media/Demo.webm" controls autoplay loop muted></video>
 
 Documentacion de la api : https://rickandmortyapi.com/documentation/
 
