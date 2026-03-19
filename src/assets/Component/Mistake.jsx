@@ -3,7 +3,9 @@ function Mistake() {
   return (
     <>
       <div className="conteiner">
-        <h1 className="error">Error de Pagina</h1>
+        <h1 className="error">
+          Cargando contenido, si tarda demasiado recargar pagina
+        </h1>
       </div>
     </>
   );

@@ -23,28 +23,15 @@ function Home({
 
   useEffect(() => {
     api(X);
-    if (Filter && Status) {
-      setFilter("");
-      setStatus("");
-      //Para Limpiar el filtro una vez se usaron
-    }
-
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [X, Filter, Status, api, setFilter, setStatus]);
-  //console.log(Data);
+  }, [X, api]);
   return (
     <>
       <div id="contenedor">
         {!Data && <p id="error">Non-existent data</p>}
-        {Data &&
-          !Filter &&
-          !Status &&
-          Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
-        {Data &&
-          Filter &&
-          !Status &&
-          Data?.results?.map((e, key) => <Open Data={e} key={key} />)}
-        {Data && Status && <h2 id="waiting">Waiting for search</h2>}
+        {Data?.results?.map((e, key) => (
+          <Open Data={e} key={key} />
+        ))}
         {Data?.error && !Status && <h2 id="error">{Data.error}</h2>}
       </div>
       <div className="move">

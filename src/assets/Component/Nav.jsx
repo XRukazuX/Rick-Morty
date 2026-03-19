@@ -1,14 +1,21 @@
 import "../Style/Nav.css";
 function Nav({ Filter, setFilter, Status, setStatus, setX }) {
   const filtro = () => {
-    const name = Filter.replace(" ", "%20");
-    const status = Status
-      ? `https://rickandmortyapi.com/api/character/?name=${name}&status=${Status}`
-      : `https://rickandmortyapi.com/api/character/?name=${name}`;
-    setX(status);
+    const name = encodeURIComponent(Filter);
+
+    let url = `https://rickandmortyapi.com/api/character/?name=${name}`;
+
+    if (Status) {
+      url += `&status=${Status}`;
+    }
+
+    setX(url);
   };
   const form = (e) => {
     e.preventDefault();
+    filtro();
+    setFilter("");
+    setStatus("");
   }; //Control del formulario al submit
   return (
     <>
@@ -17,8 +24,8 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
           <input
             id="Text"
             type="text"
-            required
             placeholder="Character Finder"
+            required
             value={Filter}
             onChange={(e) => {
               setFilter(e.target.value);
@@ -28,23 +35,14 @@ function Nav({ Filter, setFilter, Status, setStatus, setX }) {
             className="Status"
             name="Status"
             value={Status}
-            onChange={(e) => {
-              setStatus(e.target.value);
-            }}
+            onChange={(e) => setStatus(e.target.value)}
           >
-            <option value="" disabled hidden>
-              Status
-            </option>
+            <option value="">Status</option>
             <option value="alive">Alive</option>
             <option value="dead">Dead</option>
             <option value="unknown">Unknown</option>
           </select>
-          <input
-            className="boton color-boton"
-            type="submit"
-            value="Search"
-            onClick={() => filtro()}
-          />
+          <input className="boton color-boton" type="submit" value="Search" />
         </form>
       </div>
     </>
