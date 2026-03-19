@@ -1,5 +1,9 @@
 # Proyecto de uso de api de "Rick & Morty"
 
+## Demo
+
+![Demo](./src/assets/Media/Demo.webm)
+
 Documentacion de la api : https://rickandmortyapi.com/documentation/
 
 Herramientas usadas : Html, JavaScript, Css, React, React-Bootstrap y React-Router.
@@ -8,5 +12,3 @@ El proyecto tiene como finalidad la exploracion de los personajes que componen l
 La imagenes de los personajes provienen de la api pero para las imagenes de fondo o iconos se encontraron en la red para crear un mejor diseño en el proyecto. Cabe recalcar que este es un proyecto te practica con posibilidad de mejoras.
 
 Link de visualizacion del proyectos : https://infiniterick.netlify.app/
-
-![Logo](./src/assets/Logos/logo1.png)
